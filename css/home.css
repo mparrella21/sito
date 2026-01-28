@@ -1,0 +1,319 @@
+/******************************** 1) Generali ********************************/
+.pagina-home {
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+
+    width: 100%;
+    overflow: hidden;
+
+    animation: fadeIn 0.5s;
+}
+
+/******************************** 2) Sezioni Home Generali ********************************/
+
+
+
+
+.pagina-home {
+
+    /******************************** 3) Sezione top bar ********************************/
+    .topBar-Home {
+        flex: 0 0 10%;
+
+        min-height: 6rem;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+        background-color: var(--colore-1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1001;
+    }
+
+
+    /********************* Lato sinistro della top bar ********************/
+    .search-container {
+        display: flex;
+        align-items: center;
+        background: var(--colore-4);
+        border-radius: 24px;
+        padding: 5px 15px;
+        width: 100%;
+
+    }
+
+    .search-container input {
+        border: none;
+        background: transparent;
+        outline: none;
+
+        width: 100%;
+        padding: 5px;
+    }
+
+    .search-container button {
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
+
+    /********************* Lato destro della top bar ********************/
+
+    .header-right {
+        display: flex;
+        align-items: center;
+    }
+
+    /******** Utente non loggato ********/
+    .btn-accesso {
+        color: var(--colore-4);
+    }
+
+
+    /******** Utente loggato ********/
+
+    /* Elementi quando autenticato */
+
+    .contenitore-tendina-utente {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Il bottone utente  */
+    .user-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: transparent;
+        border: 1px solid transparent;
+        padding: 5px 10px;
+        border-radius: 30px;
+
+        color: var(--colore-4);
+
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    .user-btn:hover,
+    .user-btn.attivo {
+        border: 1px solid var(--colore-4);
+    }
+
+    .user-info {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        font-size: clamp(11px, 1.3rem, 1.6rem);
+    }
+
+    .ruolo-utente {
+        font-size: clamp(9px, 0.8rem, 1.6rem);
+        color: var(--colore-3);
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .user-avatar {
+        width: 3.5rem;
+        height: 3.5rem;
+        background-color: var(--colore-4);
+
+        color: var(--colore-1);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: clamp(10px, 1.1rem, 1.6rem);
+    }
+
+
+
+
+    /* Menù a tendina */
+    .contenuto-tendina {
+        display: none;
+
+        position: absolute;
+        top: 120%;
+
+        right: 0;
+
+        background-color: var(--colore-4);
+        min-width: 200px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        z-index: 2000;
+
+        overflow: hidden;
+        animation: fadeIn 0.2s;
+    }
+
+    /* Classe per mostrarlo (aggiunta via JS) */
+    .contenuto-tendina.open {
+        display: block;
+    }
+
+    /* Elementi del menu */
+    .elementi-tendina {
+        color: var(--dark);
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: clamp(9px, 1rem, 1.6rem);
+        transition: background 0.2s;
+    }
+
+    .elementi-tendina {
+        background-color: var(--colore-4);
+    }
+
+    .elementi-tendina i {
+        margin-right: 10px;
+        width: 20px;
+        text-align: center;
+        color: #555;
+    }
+
+    .separatore-tendina {
+        height: 1px;
+        margin: 4px 0;
+        overflow: hidden;
+        background-color: #e5e7eb;
+        border: none;
+    }
+
+
+    .logout-item:hover {
+        background-color: #fee2e2;
+
+        color: #dc2626;
+    }
+
+    .logout-item:hover i {
+        color: #dc2626;
+    }
+
+
+
+
+
+    /**********************************************************************************/
+    /**********************************************************************************/
+    /**********************************************************************************/
+    /**********************************************************************************/
+
+
+
+
+
+
+
+
+
+
+    /**********************************************************************************/
+    /**********************************************************************************/
+    /**********************************************************************************/
+    /******************************** 4) Sezione mappa ********************************/
+
+    /* Contenitore mappa */
+    .map-Home {
+        flex: 1;
+        position: relative;
+        z-index: 1;
+    }
+
+    #map {
+        height: 100%;
+        width: 100%;
+    }
+
+    /* Button per aggiungere ticket */
+    .aggiungi-btn {
+        position: none;
+        bottom: 2rem;
+        right: 2rem;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+
+        background-color: var(--colore-1);
+
+        color: white;
+        font-size: 2.4rem;
+        border: none;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        z-index: 1000;
+
+        transition: transform 0.2s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .aggiungi-btn.attiva {
+        position: absolute;
+    }
+
+    .aggiungi-btn:hover {
+        transform: scale(1.2);
+        background-color: var(--colore-5);
+    }
+
+
+    /* Quando la mappa è in modalità "selezione punto" */
+    .picking-mode {
+        cursor: crosshair !important;
+    }
+
+    /* Disabilita l'interazione con i vettori (poligoni) quando siamo in picking-mode */
+    .picking-mode path.leaflet-interactive {
+        pointer-events: none;
+    }
+
+    /* Stile per i poligoni della mappa */
+    path.stile-comune-base {
+
+        stroke: var(--colore-2);
+        fill: var(--colore-2);
+
+        stroke-width: 1px;
+        fill-opacity: 0.1;
+        stroke-opacity: 0.5;
+
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    path.stile-comune-base:hover {
+        stroke: var(--colore-5);
+        fill: var(--colore-5);
+        stroke-width: 3px;
+        fill-opacity: 0.3;
+
+    }
+
+    path.stile-proprio-comune {
+
+        stroke: var(--colore-1);
+        fill: var(--colore-1);
+
+        stroke-width: 2px;
+        fill-opacity: 0.2;
+
+    }
+
+
+
+}

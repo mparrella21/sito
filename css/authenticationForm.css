@@ -1,0 +1,251 @@
+/******************************** 1) Sezioni Form Generale ********************************/
+
+
+/* Stile del box generale */
+.pagina-autenticazione {
+
+    width: 40rem;
+
+    min-height: 56.5rem;
+    min-width: 29rem;
+
+
+    padding: 2.5rem;
+
+    background: var(--colore-3);
+
+}
+
+
+
+.pagina-autenticazione {
+    /******************************** 2) Sezione button ********************************/
+
+    .scelta-autenticazione {
+        display: flex;
+        justify-content: center;
+        margin-top: 0.5em;
+    }
+
+    .scelta-btn {
+        padding: 1.3rem;
+        margin-right: 2%;
+        margin-left: 2%;
+
+
+        flex: 1;
+
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+
+        border-radius: 15px;
+        background: var(--colore-3);
+        color: var(--colore-1);
+        transition: 0.5s ease;
+        border: 3px solid var(--colore-1);
+
+
+    }
+
+    .scelta-btn.attivo {
+        background: var(--colore-1);
+        color: var(--colore-4);
+
+    }
+
+    .scelta-btn:hover {
+        background: var(--colore-1);
+        color: var(--colore-4);
+    }
+
+
+    /******************************** 3) Sezione form ********************************/
+
+    .view-autenticazione {
+        display: none;
+        text-align: center;
+        justify-content: center;
+        margin: 0 2rem 0.7rem 2rem;
+    }
+
+    .view-autenticazione.attivo {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5rem;
+        animation: fadeIn 2s;
+    }
+
+    .form-autenticazione {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5rem;
+
+    }
+
+    .view-autenticazione>h1 {
+        margin: 0px;
+        padding: 5px;
+
+        text-align: center;
+
+        font-weight: bold;
+
+        color: var(--colore-1);
+        font-size: 3.2rem;
+    }
+
+
+
+
+    .view-autenticazione label {
+        margin-left: 0.4rem;
+        font-weight: 600;
+    }
+
+    .view-autenticazione .submitButton {
+        padding: 1.5rem;
+        margin: 1rem auto 0 auto;
+        clear: both;
+
+        color: var(--colore-4);
+        font-size: 2rem;
+        font-weight: 400;
+        letter-spacing: 0.1em;
+
+        background: var(--colore-1);
+        border: none;
+        border-radius: 1.5rem;
+    }
+
+
+    .elementi-form {
+        box-sizing: border-box;
+        text-align: left;
+
+        width: 100%;
+    }
+
+
+
+    .elementi-form input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--colore-1);
+        border-radius: 4px;
+        background-color: var(--colore-4);
+    }
+
+
+
+    /* Elementi solo login*/
+    .separator {
+        border-top: 2px solid var(--colore-1);
+        margin: 1.5rem 0rem;
+        padding-top: 1rem;
+    }
+
+    .google-container {
+        max-width: 18rem;
+        margin: 0 auto;
+    }
+
+    /* Elementi solo registrazione */
+    .form-row {
+        display: flex;
+        column-gap: 2rem;
+    }
+
+    @media (max-width: 600px) {
+        .form-row {
+            flex-direction: column;
+        }
+
+    }
+
+
+    .form-row>.elementi-form {
+        margin: 0.5rem 0;
+    }
+
+
+    .note-text {
+        text-align: left;
+        margin-left: 1rem;
+        font-size: small;
+
+    }
+
+
+
+    /******************************** DA ORGANIZZARE quando sistemo messaggi errore e successo ********************************/
+
+    /* Larghezza della barra */
+    .auth-page::-webkit-scrollbar {
+        width: 30px;
+    }
+
+    /* Sfondo della barra (track) */
+    .auth-page::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+    }
+
+    /* Il "cursore" che si muove (thumb) */
+    .auth-page::-webkit-scrollbar-thumb {
+        background: var(--colore-4);
+        border-radius: 4px;
+    }
+
+    /* Colore del cursore quando ci passi sopra */
+    .auth-page::-webkit-scrollbar-thumb:hover {
+        background: var(--colore-5);
+    }
+
+
+
+    /* Larghezza della barra */
+    .auth-page::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    /* Sfondo della barra (track) */
+    .auth-page::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+    }
+
+    /* Il "cursore" che si muove (thumb) */
+    .auth-page::-webkit-scrollbar-thumb {
+        background: var(--colore-4);
+        border-radius: 4px;
+    }
+
+    /* Colore del cursore quando ci passi sopra */
+    .auth-page::-webkit-scrollbar-thumb:hover {
+        background: var(--colore-4);
+    }
+
+
+    /* Messaggi di errore/successo */
+    .message-box {
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        display: none;
+        /* Nascosto di default */
+    }
+
+    .message-box.error {
+        background-color: #fce4e4;
+        color: #cc0033;
+        display: block;
+    }
+
+    .message-box.success {
+        background-color: #d4edda;
+        color: #155724;
+        display: block;
+    }
+
+}

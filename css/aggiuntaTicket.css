@@ -1,0 +1,116 @@
+/******************************** 1) Generale ********************************/
+
+.pagina-aggiunta-ticket {
+
+    width: 45rem;
+
+    min-height: 30rem;
+    min-width: 19rem;
+
+
+    padding: 2.5rem;
+    border-radius: 2.4rem;
+
+    background: var(--colore-3);
+
+}
+
+
+
+
+
+.pagina-aggiunta-ticket {
+    /******************************** 2)  ********************************/
+
+
+
+    /* Stile specifico per il form ticket */
+    .ticket-header {
+        text-align: center;
+    }
+
+    .ticket-header h2 {
+        color: var(--colore-1);
+    }
+
+
+    .form-ticket {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5rem;
+        margin: 0 2rem 0.7rem 2rem;
+    }
+
+
+
+
+
+    .elementi-form {
+        box-sizing: border-box;
+        text-align: left;
+
+        width: 100%;
+    }
+
+    label {
+        margin-left: 0.4rem;
+        font-weight: 600;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--colore-1);
+        border-radius: 7px;
+        background-color: var(--colore-4);
+    }
+
+    select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--colore-1);
+        border-radius: 7px;
+        background-color: var(--colore-4);
+    }
+
+    textarea {
+        width: 100%;
+
+        resize: vertical;
+
+
+        font-family: inherit;
+    }
+
+
+
+
+    .form-row {
+        display: flex;
+        column-gap: 2rem;
+    }
+
+    @media (max-width: 600px) {
+        .form-row {
+            flex-direction: column;
+        }
+
+    }
+
+
+
+    /* Campi Readonly (coordinate) */
+    .input-readonly {
+        background-color: #f0f0f0;
+        color: #666;
+        border-color: #ddd;
+        cursor: not-allowed;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+
+
+
+
+}

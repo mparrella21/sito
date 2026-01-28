@@ -1,0 +1,211 @@
+/******************************** 1) Import degli stili di ogni pagina ********************************/
+@import "../home.css";
+@import "../areapersonale.css";
+@import "../authenticationForm.css";
+@import "../aggiuntaTicket.css";
+
+/******************************** 2) Variabili colori ********************************/
+:root {
+    --colore-1: #1D3461;
+    --colore-2: #009BD9;
+    --colore-3: #427AA1;
+    --colore-4: #EBF2FA;
+    --colore-5: #C06E52;
+    --dark: #1a1a1a;
+}
+
+
+/******************************** 3) Generali ********************************/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-size: clamp(50%, 45% + 2vw, 62.5%);
+
+}
+
+@media (max-width: 960px) {
+    html {
+        font-size: 59.38%
+    }
+
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 56.25%
+    }
+
+}
+
+
+@media (max-width: 768px) {
+    html {
+        font-size: 56.25%
+    }
+
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+
+    border: none;
+    background: none;
+}
+
+
+
+
+
+
+/******************************** 4) Caratteristiche testi generali ********************************/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    text-align: left;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    color: var(--colore-1);
+    background-color: #f4f7f6;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+
+}
+
+/******************************** 5) Layout globale (zona comune) ********************************/
+
+
+/****** Zona contenuto ******/
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/****** Zona modale ******/
+
+/* Contenitore modale*/
+.modal-overlay {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    justify-content: center;
+    align-items: center;
+
+    display: flex;
+    z-index: 9999;
+
+    background-color: rgba(0, 0, 0, 0.45);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+/* Contenitore modale attivo */
+.modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Elementi per pagina dentro modale */
+.pagina-modale {
+    position: relative;
+
+    border-radius: 2.4rem;
+    border: 3px solid var(--colore-1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+    max-width: 80%;
+    max-height: 80%;
+    overflow-y: auto;
+
+}
+
+.animazione-modale {
+    animation: zoomIn 0.5s ease-out forwards;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* Tasto X per chiudere modale */
+.btn-close-modal {
+    position: absolute;
+    top: 0.7rem;
+    right: 1.2rem;
+    font-size: 2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+
+
+
+
+/******************************** 6) Gestione utente loggato ********************************/
+
+/* Nascondi tutto ciò che è per soli utenti loggati */
+.user-only {
+    display: none !important;
+}
+
+
+/* Quando il body ha la classe 'logged-in'... */
+
+/* ...NASCONDI le cose da ospite  */
+body.logged-in .guest-only {
+    display: none !important;
+}
+
+/* ...MOSTRA le cose da utente */
+body.logged-in .user-only {
+    display: block !important;
+    /* o flex/grid a seconda del layout */
+}

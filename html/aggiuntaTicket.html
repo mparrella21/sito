@@ -1,0 +1,65 @@
+<!-- ****************************  Pagina aggiunta ticket ************************************* -->
+
+
+<div class="pagine pagina-aggiunta-ticket">
+
+    <button class="btn-close-modal">&times;</button>
+
+    <div class="ticket-header">
+        <h2>Nuova Segnalazione</h2>
+    </div>
+
+    <form id="form-ticket" class="form-ticket">
+
+        <div class="elementi-form">
+            <label>Titolo</label>
+            <input type="text" placeholder="Es. Buca in strada">
+        </div>
+
+        <div class="elementi-form">
+            <label for="tipo">Categoria problema*</label>
+            <select id="tipo" name="tipo" required>
+                <option value="" disabled selected>Seleziona una categoria...</option>
+                <option value="buca">Buca stradale</option>
+                <option value="lampione">Illuminazione guasta</option>
+                <option value="rifiuti">Rifiuti abbandonati</option>
+                <option value="verde">Verde pubblico / Alberi</option>
+                <option value="altro">Altro</option>
+            </select>
+        </div>
+
+        <div class="elementi-form">
+            <label for="descrizione">Descrizione*</label>
+            <textarea id="descrizione" name="descrizione" rows="4" required
+                placeholder="Descrivi il problema nel dettaglio..."></textarea>
+        </div>
+
+        <div class="form-row">
+            <div class="elementi-form">
+                <label>Latitudine</label>
+                <input type="text" name="lat" id="lat" readonly class="input-readonly">
+            </div>
+            <div class="form-group">
+                <label>Longitudine</label>
+                <input type="text" name="lng" id="lng" readonly class="input-readonly">
+            </div>
+        </div>
+
+        <div class="elementi-form">
+            <label>Indirizzo ticket</label>
+            <input type="text" name="indirizzo-ticket" id="indirizzo-ticket" readonly class="input-readonly">
+
+        </div>
+
+
+        <div class="elementi-form">
+            <label for="foto">Foto (Opzionale)</label>
+            <div class="file-upload-wrapper">
+                <input type="file" id="foto" name="foto" accept="image/*">
+                <span class="file-custom-label">Scegli file...</span>
+            </div>
+        </div>
+
+        <button type="submit" class="submitButton">Invia Segnalazione</button>
+    </form>
+</div>

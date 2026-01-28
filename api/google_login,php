@@ -1,0 +1,70 @@
+<?php
+session_start();
+header('Content-Type: application/json');
+
+// 1. Ricevi il JSON dal frontend
+$input = json_decode(file_get_contents('php://input'), true);
+
+if (!isset($input['token'])) {
+    echo json_encode(['success' => false, 'message' => 'Token mancante']);
+    exit;
+}
+
+$token = $input['token'];
+
+// 2. Verifica il token chiamando le API di Google (Metodo senza librerie esterne)
+// Questo URL decifra il token e ci dice se è valido
+$url = "https://oauth2.googleapis.com/tokeninfo?id_token=" . $token;
+$response = file_get_contents($url);
+
+if ($response === FALSE) {
+    echo json_encode(['success' => false, 'message' => 'Token Google non valido']);
+    exit;
+}
+
+$payload = json_decode($response, true);
+
+// Verifica ulteriore: controlla che il token sia stato generato per IL TUO Client ID
+// (per evitare che prendano un token valido da un altro sito e lo usino qui)
+$MY_CLIENT_ID = "IL_TUO_CLIENT_ID_QUI.apps.googleusercontent.com";
+if ($payload['aud'] !== $MY_CLIENT_ID) {
+    echo json_encode(['success' => false, 'message' => 'Client ID non corrispondente']);
+    exit;
+}
+
+// 3. Estrai i dati dell'utente
+$email = $payload['email'];
+$nome = $payload['given_name'];
+$cognome = $payload['family_name'];
+$google_id = $payload['sub']; // ID univoco di Google
+$picture = $payload['picture'];
+
+// 4. Logica Database (pseudo-codice)
+require_once '../db_config.php'; // La tua connessione DB
+
+// A. Cerca se l'email esiste già
+$stmt = $pdo->prepare("SELECT * FROM utenti WHERE email = ?");
+$stmt->execute([$email]);
+$user = $stmt->fetch();
+
+if ($user) {
+    // L'utente esiste: Login
+    $_SESSION['aut'] = true;
+    $_SESSION['id'] = $user['id'];
+    $_SESSION['nome'] = $user['nome'];
+    $_SESSION['ruolo'] = $user['ruolo'];
+} else {
+    // L'utente non esiste: Registrazione automatica (Cittadino di default)
+    $stmt = $pdo->prepare("INSERT INTO utenti (nome, cognome, email, password, ruolo) VALUES (?, ?, ?, ?, 'cittadino')");
+    // Nota: Mettiamo una password casuale o null perché usa Google
+    $stmt->execute([$nome, $cognome, $email, 'GOOGLE_AUTH_NO_PASS']);
+    
+    // Recupera l'ID appena creato e fai login
+    $_SESSION['aut'] = true;
+    $_SESSION['id'] = $pdo->lastInsertId();
+    $_SESSION['nome'] = $nome;
+    $_SESSION['ruolo'] = 'cittadino';
+}
+
+echo json_encode(['success' => true]);
+?>

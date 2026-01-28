@@ -1,0 +1,79 @@
+<!-- ****************************  Home ************************************* -->
+
+<div class="pagine pagina-home">
+
+
+    <!-- ***************************** Sezioni Home ***************************** -->
+
+
+    <!-- ****************** Sezione top bar ****************** -->
+    <section class="sezioniHome topBar-Home">
+
+        <div class="header-left">
+            <div class="search-container">
+                <input type="text" id="map-search" placeholder="Cerca una zona o un ticket...">
+                <button type="button" id="btn-search"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+
+        <div class="header-right" id="user-auth-zone">
+
+            <!-- *** Non autorizzato *** -->
+            <div class="guest-only">
+                <button id="btn-open-login" class="btn-accesso">Accedi</button>
+                <button id="btn-open-register" class="btn-accesso">Registrati</button>
+            </div>
+
+
+            <!-- *** Autorizzato *** -->
+            <div class="guest-only">
+                <div class="contenitore-tendina-utente">
+
+                    <button id="user-menu-btn" class="user-btn">
+                        <div class="user-info">
+                            <span class="nome-utente">nome utente</span>
+                            <span class="ruolo-utente"> ruolo utente</span>
+                        </div>
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <i class="fas fa-chevron-down arrow-icon"></i>
+                    </button>
+
+                    <div id="contenuto-tendina-utente" class="contenuto-tendina">
+
+                        <a href="/area-personale" data-link class="elementi-tendina">
+                            <i class="fas fa-id-card"></i> Area Personale
+                        </a>
+
+                        <hr class="separatore-tendina">
+
+                        <button id="btn-logout" class="elementi-tendina logout-item">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+    <!-- ****************** Sezione mappa ****************** -->
+    <section class="sezioniHome map-Home">
+
+        <div id="map"></div>
+
+        <button id="btn-add-ticket" class="aggiungi-btn user-only">
+            <i class="fas fa-plus"></i>
+        </button>
+    </section>
+
+
+</div>
