@@ -1,3 +1,10 @@
+@import "./AreaPersonale/profilo.css";
+@import "./AreaPersonale/Admin/pagineAdmin.css";
+@import "./AreaPersonale/Cittadini/elencoTicketPersonali.css";
+@import "./AreaPersonale/Operatore/gestioneTicketOperatore.css";
+@import "./AreaPersonale/Responsabili/gestioneTicketResponsabili.css";
+@import "./AreaPersonale/Responsabili/gestioneOperatori.css";
+
 /* Layout Generale Dashboard */
 .dashboard-container {
     display: grid;
@@ -8,7 +15,7 @@
        - 260px fissi per la sidebar 
        - 1fr (il resto) per il contenuto 
     */
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: clamp(15%, 26rem, 30%) 1fr;
 
     /* Definiamo le righe:
        - 70px per l'header in alto
@@ -20,103 +27,13 @@
     grid-template-areas:
         "sidebar header"
         "sidebar content";
-}
 
-/* --- 1. SIDEBAR --- */
-.dashboard-sidebar {
-    grid-area: sidebar;
-    background-color: var(--colore-1);
-    /* Colore scuro/principale */
-    color: white;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
 
-.sidebar-header {
-    margin-bottom: 40px;
-}
 
-.btn-home {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
 
-.sidebar-nav ul {
-    list-style: none;
-    padding: 0;
-}
 
-.sidebar-nav li {
-    margin-bottom: 10px;
-}
+    @media (max-width: 4rem) {
 
-.nav-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 15px;
-    color: #ccc;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: all 0.3s;
-    cursor: pointer;
-    font-size: 1.4rem;
-    /* Testo leggibile */
-}
-
-.nav-link:hover,
-.nav-link.active {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-}
-
-.sidebar-footer {
-    margin-top: auto;
-    /* Spinge il logout in fondo */
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* --- 2. TOPBAR --- */
-.dashboard-topbar {
-    grid-area: header;
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 30px;
-    border-bottom: 1px solid #eee;
-}
-
-.role-badge {
-    background-color: var(--colore-1);
-    color: white;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 0.8em;
-    text-transform: uppercase;
-    margin-right: 10px;
-}
-
-/* --- 3. MAIN CONTENT --- */
-.dashboard-main {
-    grid-area: content;
-    background-color: #f4f6f9;
-    /* Grigio chiarissimo per stacco */
-    padding: 30px;
-    overflow-y: auto;
-    /* Scrolla SOLO il contenuto, non la sidebar */
-}
-
-/* Responsive per Mobile (Sidebar sparisce o diventa piccola) */
-@media (max-width: 768px) {
-    .dashboard-container {
         grid-template-columns: 1fr;
         /* Una sola colonna */
         grid-template-rows: auto auto 1fr;
@@ -124,11 +41,121 @@
         grid-template-areas:
             "header"
             "content";
-        height: auto;
     }
 
+}
+
+.dashboard-container {
+
+
+    /* --- 1. SIDEBAR --- */
     .dashboard-sidebar {
-        display: none;
-        /* Per ora nascondiamola su mobile, poi faremo il menu hamburger */
+        grid-area: sidebar;
+        background-color: var(--colore-1);
+        color: var(--colore-4);
+
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+
+
+        @media (max-width: 4rem) {
+            display: none;
+            /* Per ora nascondiamola su mobile, poi faremo il menu hamburger */
+        }
     }
+
+    .sidebar-header {
+        margin-bottom: 4rem;
+    }
+
+    .user-profile-widget {
+        display: flex;
+        gap: 1rem;
+    }
+
+
+    .btn-home {
+        color: var(--colore-4);
+        text-decoration: none;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .sidebar-nav ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .sidebar-nav li {
+        margin-bottom: 10px;
+    }
+
+    .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 15px;
+        color: var(--colore-4);
+        text-decoration: none;
+        border-radius: 8px;
+        transition: all 0.3s;
+        cursor: pointer;
+        font-size: 1.4rem;
+        /* Testo leggibile */
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
+
+    .sidebar-footer {
+        margin-top: auto;
+        /* Spinge il logout in fondo */
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    }
+
+    .btn-logout-sidebar {
+        color: var(--colore-5)
+    }
+
+    /* --- 2. TOPBAR --- */
+    .dashboard-topbar {
+        grid-area: header;
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .role-badge {
+        background-color: var(--colore-1);
+        color: white;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 0.8em;
+        text-transform: uppercase;
+    }
+
+    /* --- 3. MAIN CONTENT --- */
+    .dashboard-main {
+        grid-area: content;
+        background-color: #f4f6f9;
+        /* Grigio chiarissimo per stacco */
+        padding: 30px;
+        overflow-y: auto;
+        /* Scrolla SOLO il contenuto, non la sidebar */
+    }
+
+
+
 }

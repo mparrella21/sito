@@ -1,0 +1,54 @@
+<div class="pagine pagina-admin-login">
+
+
+    <div class="login-card">
+
+        <div class="card-header">
+            <a href="/" data-link class="btn-back" title="Torna alla Home Generale">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h2>Area Amministrativa</h2>
+        </div>
+
+        <div class="icon-header">
+            <i class="fas fa-user-shield"></i>
+        </div>
+
+        <p class="subtitle">Inserisci le tue credenziali per accedere al pannello di gestione globale.</p>
+
+        <form id="form-login-admin">
+
+            <div class="input-group">
+                <label for="email">Email</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" placeholder="admin@example.com" required autocomplete="email">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="••••••••" required
+                        autocomplete="current-password">
+                    <i class="far fa-eye toggle-password" id="toggle-password"></i>
+                </div>
+
+            </div>
+
+            <div id="login-error" class="error-banner hidden">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span id="error-text">Credenziali non valide.</span>
+            </div>
+
+            <button type="submit" class="btn-submit">
+                <span class="btn-text">Accedi</span>
+                <div class="spinner hidden" id="btn-spinner"></div>
+            </button>
+
+        </form>
+
+
+    </div>
+</div>

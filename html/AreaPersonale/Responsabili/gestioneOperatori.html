@@ -1,2 +1,100 @@
-<h3>Operatori</h3>
-<p>Elenco operatori...</p>
+<div class="pagine pagina-gestione-operatori">
+
+    <div class="dashboard-header">
+        <h1>Gestione Operatori</h1>
+        <div class="header-actions">
+            <button class="btn-primary" id="btn-add-operator">
+                <i class="fas fa-user-plus"></i> Nuovo Operatore
+            </button>
+            <button class="btn-refresh" id="btn-refresh" title="Ricarica Dati">
+                <i class="fas fa-sync-alt"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="stats-card">
+        <div class="stats-grid" id="stats-container">
+            <div class="stat-box total">
+                <div class="stat-icon"><i class="fas fa-users"></i></div>
+                <div class="stat-info">
+                    <span class="stat-label">Totale Operatori</span>
+                    <span class="stat-value" id="stat-total-ops">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="filters-card">
+        <div class="filters-grid">
+
+            <div class="filter-group">
+                <label for="filter-name">Cerca Operatore</label>
+                <input type="text" id="filter-name" placeholder="Nome, Cognome o Email...">
+            </div>
+
+            <div class="filter-group">
+                <label for="filter-category">Categoria</label>
+                <select id="filter-category">
+                    <option value="">Tutte le categorie</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="filters-actions">
+            <button id="btn-reset-filters" class="btn-secondary">Reset</button>
+        </div>
+    </div>
+
+    <div class="results-card">
+        <div class="table-responsive">
+            <table class="operator-table">
+                <thead>
+                    <tr>
+                        <th>Operatore</th>
+                        <th>Categorie</th>
+                        <th style="text-align: center;">Ticket Assegnati</th>
+                        <th style="text-align: center;">Ticket Completati</th>
+                        <th style="width: 100px; text-align: center;">Azioni</th>
+                    </tr>
+                </thead>
+                <tbody id="operators-table-body">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="loading-state" class="state-message">
+            <div class="spinner"></div> Caricamento dati...
+        </div>
+        <div id="empty-state" class="state-message hidden">
+            <i class="fas fa-user-slash"></i> Nessun operatore trovato.
+        </div>
+    </div>
+
+    <div id="modal-add-operator" class="custom-modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Aggiungi Nuovo Operatore</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p class="modal-hint">Verrà creato un nuovo account e aggiunto al tuo team.</p>
+                <form id="form-add-operator">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="new-op-email" required placeholder="email@esempio.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="new-op-password" required placeholder="Password sicura">
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-secondary close-modal-btn">Annulla</button>
+                        <button type="submit" class="btn-primary">Crea e Aggiungi</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

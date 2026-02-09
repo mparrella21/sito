@@ -1,0 +1,272 @@
+/******************************** 1) Sezioni Form Generale ********************************/
+
+
+/* Stile del box generale */
+.pagina-autenticazione {
+
+    width: 42rem;
+
+    min-height: 56.5rem;
+    min-width: 29rem;
+
+
+    padding: 2.5rem;
+
+    background: var(--colore-3);
+
+
+    padding: 1.5rem clamp(1rem, 5vw, 2.5rem);
+
+    @media (max-height: 60rem) {
+        min-height: 0;
+    }
+
+    @media (max-width: 32rem) {
+        min-width: 0;
+    }
+}
+
+
+
+.pagina-autenticazione {
+
+    #formDiAccesso.hidden,
+    #formDatiAnagrafici.hidden {
+        display: none;
+    }
+
+    /******************************** 2) Sezione button ********************************/
+
+
+    .scelta-autenticazione {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0.5em;
+
+        @media (max-width: 20rem) {
+            flex-direction: column;
+        }
+
+    }
+
+    .scelta-btn {
+        padding: 1.3rem;
+        margin-right: 2%;
+        margin-left: 2%;
+
+
+        flex: 1;
+
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+
+        border-radius: 15px;
+        background: var(--colore-3);
+        color: var(--colore-1);
+        transition: 0.5s ease;
+        border: 3px solid var(--colore-1);
+
+        @media (max-width: 20rem) {
+
+            margin: 2% 0%;
+            min-width: 12rem;
+        }
+    }
+
+    .scelta-btn.attivo {
+        background: var(--colore-1);
+        color: var(--colore-4);
+
+    }
+
+    .scelta-btn:hover {
+        background: var(--colore-1);
+        color: var(--colore-4);
+    }
+
+
+
+
+
+
+    /******************************** 3) Sezione form ********************************/
+
+    .view-autenticazione {
+        display: none;
+        text-align: center;
+        justify-content: center;
+        margin: 0 2rem 0.7rem 2rem;
+
+        @media (max-width: 20rem) {
+            margin: 0 0rem 0.7rem 0rem;
+        }
+    }
+
+
+
+    .view-autenticazione.attivo {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5rem;
+        animation: fadeIn 2s;
+    }
+
+    .form-autenticazione {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5rem;
+
+    }
+
+    .view-autenticazione>h1 {
+        margin: 0px;
+        padding: 5px;
+
+        text-align: center;
+
+        font-weight: bold;
+
+        color: var(--colore-1);
+        font-size: 3.2rem;
+    }
+
+
+
+
+    .view-autenticazione label {
+        margin-left: 0.4rem;
+        font-weight: 600;
+    }
+
+    .submitButton {
+        padding: 1.5rem 2rem;
+        margin: 1rem auto 0 auto;
+        clear: both;
+
+        color: var(--colore-4);
+        font-size: 2rem;
+        font-weight: 400;
+
+
+        background: var(--colore-1);
+        border: none;
+        border-radius: 1.5rem;
+
+        @media (max-width: 13rem) {
+            padding: 1rem;
+            letter-spacing: 0em;
+        }
+    }
+
+
+    .elementi-form {
+        box-sizing: border-box;
+        text-align: left;
+
+        width: 100%;
+    }
+
+
+
+    .elementi-form input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--colore-1);
+        border-radius: 4px;
+        background-color: var(--colore-4);
+    }
+
+
+
+    /* Elementi solo login*/
+    .separator {
+        border-top: 2px solid var(--colore-1);
+        margin: 1.5rem 0rem;
+        padding-top: 1rem;
+    }
+
+    .google-container {
+        max-width: 18rem;
+        margin: 0 auto;
+    }
+
+    /* Elementi solo registrazione */
+    .form-row {
+        display: flex;
+        column-gap: 2rem;
+
+        @media (max-width: 30rem) {
+            flex-direction: column;
+        }
+    }
+
+    .form-row>.elementi-form {
+        margin: 0.5rem 0;
+    }
+
+
+    .note-text {
+        text-align: left;
+        margin-left: 1rem;
+        font-size: small;
+
+    }
+
+
+    /* Messaggi di errore/successo */
+    .message-box {
+        margin: 0rem auto 1rem;
+        padding: 0.8rem;
+        border-radius: 5px;
+        display: none;
+
+    }
+
+    .message-box.error {
+        background-color: var(--success-2);
+        color: var(--success-1);
+        border: 1px solid var(--success-1);
+        display: block;
+    }
+
+    .message-box.success {
+        background-color: var(--error-2);
+        color: var(--error-1);
+        border: 1px solid var(--error-1);
+        display: block;
+    }
+}
+
+
+
+/******************************** Organizzazione ********************************/
+
+
+/* Larghezza della barra */
+.pagina-autenticazione::-webkit-scrollbar {
+    width: 1rem;
+
+}
+
+/* Sfondo della barra (track) */
+.pagina-autenticazione::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 15px 0;
+}
+
+/* Il "cursore" che si muove (thumb) */
+.pagina-autenticazione::-webkit-scrollbar-thumb {
+    background: var(--colore-4);
+
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    border-radius: 10px;
+}
+
+/* Colore del cursore quando ci passi sopra */
+.pagina-autenticazione::-webkit-scrollbar-thumb:hover {
+    background: var(--colore-1);
+
+}

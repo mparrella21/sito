@@ -1,0 +1,34 @@
+<div class="admin-content">
+    <div class="content-header">
+        <h2><i class="fas fa-user-tie"></i> Gestione Responsabili</h2>
+        <p class="text-muted">Gestisci gli account con privilegi amministrativi o manageriali.</p>
+    </div>
+
+    <div class="toolbar">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="responsabili-search" placeholder="Cerca responsabile...">
+        </div>
+        <button id="add-responsabile-btn" class="btn-primary">
+            <i class="fas fa-user-plus"></i> Nuovo Responsabile
+        </button>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome e Cognome</th>
+                    <th>Email / Username</th>
+                    <th>Ruolo</th>
+                    <th style="text-align: right;">Azioni</th>
+                </tr>
+            </thead>
+            <tbody id="responsabili-table-body">
+                <tr>
+                    <td colspan="4" class="loading-cell">Caricamento responsabili...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

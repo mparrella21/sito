@@ -1,0 +1,20 @@
+<div class="admin-content">
+    <div class="chart-container full-width">
+        <select id="performance-metric">
+            <option value="response_time">Tempo di Risposta</option>
+            <option value="satisfaction">Soddisfazione</option>
+        </select>
+        <div class="chart-wrapper">
+            <canvas id="performance-chart"></canvas>
+        </div>
+    </div>
+
+    <div class="stats-split" style="display: flex; gap: 20px;">
+        <div class="chart-container half-width">
+            <canvas id="categories-chart"></canvas>
+        </div>
+        <div class="table-container half-width">
+            <table id="categories-table">...</table>
+        </div>
+    </div>
+</div>

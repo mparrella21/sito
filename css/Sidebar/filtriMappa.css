@@ -1,0 +1,550 @@
+/* Stile del box generale */
+.pagina-filtriMappa {
+    background-color: var(--colore-3);
+
+    border-right: 1px solid var(--colore-1);
+    padding: 0 2rem;
+
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+
+
+.pagina-filtriMappa {
+
+    /********************* Header sidebar ********************/
+    .sidebar-header {
+        width: 100%;
+        padding: 1.1rem 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-bottom: 4px solid var(--colore-1);
+
+        h2 {
+            margin: 0;
+        }
+    }
+
+
+    /********************* Footer sidebar ********************/
+    .sidebar-footer {
+        width: 100%;
+
+        padding: 1rem;
+        border-top: 2px solid var(--colore-1);
+
+        display: flex;
+        gap: 10px;
+        margin-top: auto;
+
+        @media (max-width: 20rem) {
+            flex-direction: column-reverse;
+        }
+    }
+
+
+    .btn-submit {
+        color: var(--colore-4);
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .btn-apply {
+        flex: 2;
+        background: var(--colore-1);
+    }
+
+    .btn-reset {
+        flex: 1;
+        background: var(--colore-5);
+    }
+
+
+    /* Switch solo filtri aperti*/
+    .apply-logic-switch {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 0 0 1rem 1rem;
+    }
+
+
+    .switch-small {
+        position: relative;
+        display: inline-block;
+        width: 3rem;
+        height: 1.6rem;
+    }
+
+    .switch-small input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider-small {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 3.4rem;
+    }
+
+    .slider-small:before {
+        position: absolute;
+        content: "";
+        height: 12px;
+        width: 12px;
+        left: 2px;
+        bottom: 2px;
+        background-color: var(--colore-4);
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked+.slider-small {
+        background-color: var(--colore-1);
+    }
+
+    input:checked+.slider-small:before {
+        transform: translateX(1.4rem);
+    }
+
+
+
+    /**************************************************************/
+    /********************* Body sidebar ********************/
+    .sidebar-body {
+        width: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 0rem;
+        row-gap: 1rem;
+    }
+
+    /*********************************************/
+    /********* Button switch modalità *********/
+    .scelta-soggettofiltri {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+
+
+
+        @media (max-width: 20rem) {
+            flex-direction: column;
+        }
+    }
+
+    .scelta-btn {
+        padding: 1.3rem;
+        margin-right: 2%;
+        margin-left: 2%;
+
+        min-width: 12rem;
+        flex: 1;
+
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+
+        border-radius: 15px;
+        background: var(--colore-3);
+        color: var(--colore-1);
+        transition: 0.5s ease;
+        border: 3px solid var(--colore-1);
+
+        @media (max-width: 20rem) {
+
+            margin: 2% 0%;
+            min-width: 12rem;
+        }
+    }
+
+    .scelta-btn.attivo {
+        background: var(--colore-1);
+        color: var(--colore-4);
+
+    }
+
+    .scelta-btn:hover {
+        background: var(--colore-1);
+        color: var(--colore-4);
+    }
+
+
+    /*********************************************/
+    /********* Gestione switch totale *********/
+
+    .contenitore-switch-generale {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        column-gap: 2rem;
+    }
+
+    /* Stile Toggle Switch */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 4rem;
+        height: 2.2rem;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 3.4rem;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 1.6rem;
+        width: 1.6rem;
+        left: 3px;
+        bottom: 3px;
+        background-color: var(--colore-4);
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked+.slider {
+        background-color: var(--colore-1);
+    }
+
+    input:checked+.slider:before {
+        transform: translateX(1.8rem);
+    }
+
+
+
+    /*********************************************/
+    /********* Gestione Visibilità Macro Aree *********/
+    .macro-area {
+        width: 100%;
+        justify-content: center;
+        display: none;
+        overflow-y: auto;
+        row-gap: 1rem;
+    }
+
+    .macro-area.attivo {
+        display: flex;
+        animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .contenitore-filtri {
+        width: 100%;
+        row-gap: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contenitore-filtri.disabilitato {
+        opacity: 0.5;
+        pointer-events: none;
+        filter: grayscale(100%);
+    }
+
+
+
+
+    /*************************************/
+    /********** Gestione area **********/
+
+    .elemento-form {
+        border: 1px solid var(--colore-1);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    /* Scelta + input*/
+    .input-group-combined {
+        display: flex;
+    }
+
+    .scope-select {
+        border: none;
+        background: var(--colore-1);
+        color: var(--colore-4);
+        padding: 0.8rem;
+        border-right: 1px solid var(--colore-3);
+
+        font-size: 1.3rem;
+    }
+
+    .input-group-combined input {
+        border: none;
+        background: var(--colore-4);
+        padding: 0.8rem;
+        flex: 1;
+    }
+
+
+    /* Tendina*/
+
+    summary {
+
+        background: var(--colore-3);
+        color: var(--colore-1);
+        padding: 12px;
+        cursor: pointer;
+        font-weight: 600;
+        list-style: none;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    summary::after {
+        content: '\25BC';
+        font-size: 0.8em;
+        transition: transform 0.2s;
+    }
+
+    details[open] {
+        summary {
+            background: var(--colore-1);
+            color: var(--colore-4);
+        }
+
+        summary::after {
+            transform: rotate(180deg);
+        }
+
+
+    }
+
+
+    /* Contenuto tendine*/
+    .filter-group {
+
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background: var(--colore-4);
+    }
+
+    .date-row {
+        width: 100%;
+        display: flex;
+        column-gap: 1rem;
+        justify-content: space-between;
+    }
+
+    .date-row input {
+        width: 80%;
+    }
+
+    .checkbox-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+
+    .cascading-selects {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+    }
+
+    .cascading-selects select {
+        width: 100%;
+
+        padding: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+
+    .posizione-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+
+    }
+
+    .geo-center-input {
+        width: 100%;
+        padding: 0 1rem;
+        border: none;
+        border: 1px solid var(--colore-1);
+        border-radius: 5px;
+    }
+
+    .geo-radius-input {
+        flex: 1;
+    }
+
+    .range-output {
+        white-space: nowrap;
+        text-align: right;
+    }
+
+    .btn-position.attivo {
+        color: var(--colore-5);
+    }
+
+
+
+
+
+
+
+    .macro-area:has(details[name="posizione"][open]) details[name="posizione"]:not([open]) {
+        opacity: 0.5;
+        filter: grayscale(0.8);
+        transition: all 0.3s ease;
+    }
+
+
+
+
+
+
+
+
+    .full-width {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+
+
+
+
+
+
+
+}
+
+
+
+/* Larghezza della barra */
+.pagina-filtriMappa::-webkit-scrollbar {
+    width: 0.85rem;
+
+}
+
+/* Sfondo della barra (track) */
+.pagina-filtriMappa::-webkit-scrollbar-track {
+    background: transparent;
+
+}
+
+/* Il "cursore" che si muove (thumb) */
+.pagina-filtriMappa::-webkit-scrollbar-thumb {
+    background: var(--colore-1);
+
+    background-clip: padding-box;
+    border-radius: 10px;
+}
+
+/* Colore del cursore quando ci passi sopra */
+.pagina-filtriMappa::-webkit-scrollbar-thumb:hover {
+    background: var(--colore-1);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/**************************************************************************************/
+/**************************************************************************************/
+/**************************************************************************************/
+/**************************************************************************************/
+/**************************************************************************************/
+/**************************************************************************************/
+/**************************************************************************************/
+/**************************************************************************************/
+
+
+
+
+
+
+
+/* --- CHIPS (Zone selezionate) --- */
+.chips-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    max-width: 100%;
+}
+
+.chip {
+    background: var(--colore-2);
+    color: var(--colore-4);
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.chip i {
+    cursor: pointer;
+    color: var(--colore-5);
+    margin-left: 8px;
+}
+
+.chip i:hover {
+    font-weight: bold;
+}

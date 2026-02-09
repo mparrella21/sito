@@ -1,2 +1,91 @@
-<h3>Interventi da fare</h3>
-<p>Mappa ticket repsponsabile...</p>
+<div class="pagine pagina-gestione-ticket-responsabile">
+
+    <div class="dashboard-header">
+        <h1>Gestione Interventi (Responsabile)</h1>
+        <div class="header-actions">
+            <button class="btn-refresh" id="btn-refresh" title="Ricarica Dati">
+                <i class="fas fa-sync-alt"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="stats-card">
+        <div class="stats-grid">
+            <div class="stat-box total">
+                <div class="stat-icon"><i class="fas fa-layer-group"></i></div>
+                <div class="stat-info">
+                    <span class="stat-label">Ticket Visualizzati</span>
+                    <span class="stat-value" id="stat-total">0</span>
+                </div>
+            </div>
+            <div class="stat-box completed">
+                <div class="stat-icon"><i class="fas fa-check-double"></i></div>
+                <div class="stat-info">
+                    <span class="stat-label">Completati / Chiusi</span>
+                    <span class="stat-value" id="stat-completed">0</span>
+                </div>
+            </div>
+            <div class="stat-box assigned">
+                <div class="stat-icon"><i class="fas fa-users-cog"></i></div>
+                <div class="stat-info">
+                    <span class="stat-label">Con Assegnazione</span>
+                    <span class="stat-value" id="stat-assigned">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="filters-card">
+        <div class="filters-grid">
+
+            <div class="filter-group">
+                <label for="filter-title">Cerca per Titolo</label>
+                <input type="text" id="filter-title" placeholder="Es. Illuminazione...">
+            </div>
+
+            <div class="filter-group">
+                <label for="filter-status">Stato</label>
+                <select id="filter-status">
+                    <option value="">Tutti gli stati</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="filter-date">Data Creazione</label>
+                <input type="date" id="filter-date">
+            </div>
+
+        </div>
+
+        <div class="filters-actions">
+            <button id="btn-reset-filters" class="btn-secondary">Reset</button>
+            <button id="btn-apply-filters" class="btn-primary">Applica Filtri</button>
+        </div>
+    </div>
+
+    <div class="results-card">
+        <div class="table-responsive">
+            <table class="ticket-table">
+                <thead>
+                    <tr>
+                        <th>Titolo</th>
+                        <th>Stato</th>
+                        <th>Data</th>
+                        <th>Operatori</th>
+                        <th style="width: 180px; text-align: center;">Azioni</th>
+                    </tr>
+                </thead>
+                <tbody id="tickets-table-body">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="tickets-loading" class="state-message">
+            <div class="spinner"></div> Caricamento ticket...
+        </div>
+        <div id="tickets-empty" class="state-message hidden">
+            <i class="fas fa-folder-open"></i> Nessun ticket trovato.
+        </div>
+    </div>
+
+</div>

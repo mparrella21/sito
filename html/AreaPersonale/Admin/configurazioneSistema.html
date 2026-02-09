@@ -1,0 +1,55 @@
+<div class="admin-content">
+    <div class="content-header">
+        <h2><i class="fas fa-cogs"></i> Configurazione Sistema</h2>
+        <p class="text-muted">Impostazioni globali della piattaforma.</p>
+    </div>
+
+    <form id="config-form">
+        <div class="config-grid">
+
+            <div class="config-card">
+                <h3><i class="fas fa-sliders-h"></i> Generali</h3>
+
+                <div class="form-group" style="margin-top: 1rem;">
+                    <label for="site-name">Nome Piattaforma</label>
+                    <input type="text" id="site-name" class="form-control" placeholder="Es. CityFix">
+                    <small>Il nome visualizzato nella barra del titolo e nelle email.</small>
+                </div>
+
+                <div class="form-group toggle-group"
+                    style="margin-top: 1.5rem; display: flex; align-items: center; gap: 10px;">
+                    <input type="checkbox" id="maintenance-mode" style="width: auto;">
+                    <label for="maintenance-mode" style="margin:0; cursor: pointer;"><strong>Modalità
+                            Manutenzione</strong></label>
+                </div>
+                <small style="display: block; margin-top: 5px; color: #e74c3c;">Se attivo, solo gli admin potranno
+                    accedere al sistema.</small>
+            </div>
+
+            <div class="config-card" style="border-left-color: #2ecc71;">
+                <h3><i class="fas fa-bell"></i> Notifiche</h3>
+
+                <div class="form-group" style="margin-top: 1rem;">
+                    <label>Email Supporto Tecnico</label>
+                    <input type="email" id="support-email" class="form-control" placeholder="supporto@example.com">
+                </div>
+
+                <div class="form-group" style="margin-top: 1rem;">
+                    <label>Frequenza Report Automatici</label>
+                    <select id="report-freq" class="form-control">
+                        <option value="weekly">Settimanale (Lunedì)</option>
+                        <option value="monthly">Mensile (1° del mese)</option>
+                        <option value="never">Disabilitati</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-actions"
+            style="margin-top: 2rem; text-align: right; border-top: 1px solid #eee; padding-top: 1rem;">
+            <button type="button" class="btn-secondary" onclick="this.form.reset()">Annulla Modifiche</button>
+            <button type="submit" class="btn-primary"><i class="fas fa-save"></i> Salva Configurazione</button>
+        </div>
+    </form>
+</div>

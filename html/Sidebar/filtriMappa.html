@@ -1,0 +1,209 @@
+<!-- ************************** Pagina filtri mappa *********************************** -->
+
+<div id="contenitore-filtriMappa" class="pagine pagina-filtriMappa">
+
+
+    <div class="sidebar-header">
+        <h2 class="admin-only">Filtri Mappa</h2>
+        <h2 class="not-admin-only">Filtri ticket</h2>
+    </div>
+
+    <div class="sidebar-body">
+
+        <div class="admin-only">
+            <div id="scelta-tabs-filtri" class="scelta-soggettofiltri ">
+                <button id="btn-tab-ticket" class="scelta-btn">Ticket</button>
+                <button id="btn-tab-comuni" class="scelta-btn">Comuni</button>
+            </div>
+        </div>
+
+
+        <div class="contenitore-switch-generale">
+            <label id="switch-label" class="switch-label">Mostra Ticket sulla Mappa</label>
+            <label class="switch">
+                <input type="checkbox" id="toggle-generale" checked>
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+
+
+        <div id="area-ticket" class="macro-area">
+            <form id="form-filtri-ticket" class="contenitore-filtri">
+
+                <div class="input-group-combined elemento-form">
+                    <select name="text_search_scope" class="scope-select">
+                        <option value="all">Tutto</option>
+                        <option value="region">Regione</option>
+                        <option value="province">Provincia</option>
+                        <option value="municipality">Comune</option>
+                        <option value="title">Titolo Ticket</option>
+                    </select>
+                    <input type="text" name="text_search" placeholder="Cerca...">
+                </div>
+
+                <details id="statiTicket" class="elemento-form">
+                    <summary>Stato</summary>
+                    <div id="contanitore-dynamic-stato" class="filter-group">
+                    </div>
+                </details>
+
+                <details id="categorieTicket" class="elemento-form">
+                    <summary>Categorie & Tipologia</summary>
+                    <div id="contanitore-dynamic-categorie" class="filter-group checkbox-grid">
+                    </div>
+                </details>
+
+                <details id="dataTicket" class="elemento-form">
+                    <summary>Data Segnalazioni</summary>
+                    <div class="filter-group date-row">
+                        <div class="date-row">
+                            <label>Dal:</label>
+                            <input type="date" name="date_from" aria-label="Data Inizio">
+                        </div>
+                        <div class="date-row">
+                            <span>al:</span>
+                            <input type="date" name="date_to" aria-label="Data Fine">
+                        </div>
+                    </div>
+                </details>
+
+
+                <details name="posizione" id="posTicket" class="elemento-form">
+                    <summary>Posizione e raggio </summary>
+
+                    <div class="filter-group">
+                        <div class="posizione-row">
+
+                            <label>Centro (Lat, Lng):</label>
+                            <div>
+                                <button type="button" id="btn-get-point" class="btn-position"
+                                    title="Seleziona posizione sulla mappa"><i
+                                        class="fas fa-map-marker-alt"></i></button>
+                                <button type="button" id="btn-get-gps" class="btn-position" title="Usa mia posizione"><i
+                                        class="fas fa-location-arrow"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="posizione-row">
+                            <input type="text" name="position_value" id="geo-center-input" class="geo-center-input"
+                                placeholder="Clicca sulla mappa o usa GPS" readonly>
+
+                        </div>
+
+
+
+                        <label>Raggio d'azione:</label>
+                        <div class="posizione-row">
+
+                            <input type="range" name="radius_value" class="geo-radius-input" min="1" max="100"
+                                value="10" oninput="outRaggio.value = this.value + ' km'">
+
+                            <output id="outRaggio" class="range-output">10 km</output>
+                        </div>
+                    </div>
+                </details>
+
+                <details name="posizione" id="zoneTicket" class="elemento-form admin-only">
+                    <summary>Selezione zone</summary>
+
+                    <div class="filter-group">
+                        <div class="cascading-selects">
+                            <select id="sel-region">
+                                <option value="">-- Seleziona Regione --</option>
+                            </select>
+                            <select id="sel-province" disabled>
+                                <option value="">-- Prima la Regione --</option>
+                            </select>
+                            <select id="sel-comune" disabled>
+                                <option value="">-- Prima la Provincia --</option>
+                            </select>
+
+                            <button type="button" id="btn-add-zone" class="btn-small full-width" disabled>+
+                                Aggiungi
+                                Zona</button>
+                        </div>
+
+                        <div id="selected-zones-list" class="chips-container">
+                        </div>
+                        <input type="hidden" name="selected_zones_data" id="hidden-zones-data">
+
+                    </div>
+                </details>
+
+            </form>
+
+        </div>
+
+
+        <div class="admin-only">
+
+
+            <div id="area-comuni" class="macro-area">
+
+
+                <form id="form-filtri-comuni" class="contenitore-filtri">
+
+
+                    <div class="input-group-combined elemento-form">
+                        <select name="text_search_scope_comune" class="scope-select">
+                            <option value="all">Tutto</option>
+                            <option value="region">Regione</option>
+                            <option value="province">Provincia</option>
+                            <option value="municipality">Comune</option>
+                        </select>
+                        <input type="text" name="text_search_comune" placeholder="Cerca...">
+                    </div>
+
+                    <details name="posizione" id="zoneComune" class="elemento-form admin-only">
+                        <summary>Selezione zone</summary>
+
+                        <div class="filter-group">
+                            <div class="cascading-selects">
+                                <select id="sel-region-comune">
+                                    <option value="">-- Seleziona Regione --</option>
+                                </select>
+                                <select id="sel-province-comune" disabled>
+                                    <option value="">-- Prima la Regione --</option>
+                                </select>
+                                <select id="sel-comune-comune" disabled>
+                                    <option value="">-- Prima la Provincia --</option>
+                                </select>
+
+                                <button type="button" id="btn-add-zone-comune" class="btn-small full-width" disabled>+
+                                    Aggiungi
+                                    Zona</button>
+                            </div>
+
+                            <div id="selected-zones-list-comune" class="chips-container">
+                            </div>
+                            <input type="hidden" name="selected_zones_data" id="hidden-zones-data-comune">
+
+                        </div>
+                    </details>
+
+                </form>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <div class="apply-logic-switch">
+        <label class="switch-small">
+            <input type="checkbox" id="logic-only-open">
+            <span class="slider-small round"></span>
+        </label>
+        <span class="logic-label">Usa (o reset) solo filtri aperti</span>
+    </div>
+
+    <div class="sidebar-footer">
+
+        <button id="btn-reset" class="btn-reset btn-submit">Reset</button>
+        <button id="btn-apply" class="btn-apply btn-submit">Applica Filtri</button>
+    </div>
+
+</div>

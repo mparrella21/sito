@@ -1,2 +1,70 @@
-<h3>Storico</h3>
-<p>Lista dei ticket aperti da me...</p>
+<div class="pagine pagina-gestione-ticket-utente">
+
+    <div class="dashboard-header">
+        <h1>Gestione Ticket</h1>
+        <button class="btn-refresh" id="btn-refresh" title="Ricarica Dati">
+            <i class="fas fa-sync-alt"></i>
+        </button>
+    </div>
+
+    <div class="filters-card">
+        <div class="filters-grid">
+
+            <div class="filter-group">
+                <label for="filter-title">Cerca per Titolo</label>
+                <input type="text" id="filter-title" placeholder="Es. Buca in strada...">
+            </div>
+
+            <div class="filter-group">
+                <label for="filter-category">Categoria</label>
+                <select id="filter-category">
+                    <option value="">Tutte le categorie</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="filter-status">Stato</label>
+                <select id="filter-status">
+                    <option value="">Tutti gli stati</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="filter-date">Data Creazione</label>
+                <input type="date" id="filter-date">
+            </div>
+
+        </div>
+
+        <div class="filters-actions">
+            <button id="btn-reset-filters" class="btn-secondary">Reset</button>
+            <button id="btn-apply-filters" class="btn-primary">Applica Filtri</button>
+        </div>
+    </div>
+
+    <div class="results-card">
+        <div class="table-responsive">
+            <table class="ticket-table">
+                <thead>
+                    <tr>
+                        <th>Titolo</th>
+                        <th>Categoria</th>
+                        <th>Stato</th>
+                        <th>Data Creazione</th>
+                        <th style="width: 80px;">Azioni</th>
+                    </tr>
+                </thead>
+                <tbody id="tickets-table-body">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="tickets-loading" class="state-message">
+            <div class="spinner"></div> Caricamento ticket...
+        </div>
+        <div id="tickets-empty" class="state-message hidden">
+            <i class="fas fa-folder-open"></i> Nessun ticket trovato.
+        </div>
+    </div>
+
+</div>

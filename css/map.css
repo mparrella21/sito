@@ -1,0 +1,252 @@
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+/* Quando la mappa è in modalità "selezione punto" */
+#map.picking-mode {
+    cursor: crosshair !important;
+}
+
+/* Disabilita l'interazione con i vettori (poligoni) quando siamo in picking-mode */
+#map.picking-mode path.leaflet-interactive {
+    pointer-events: none;
+}
+
+
+
+
+
+#map {
+
+
+
+    /* Stile per i poligoni della mappa */
+    path.stile-comune-base {
+
+        stroke: var(--colore-2);
+        fill: var(--colore-2);
+
+        stroke-width: 1px;
+        fill-opacity: 0.1;
+        stroke-opacity: 0.5;
+
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    path.stile-comune-base:hover {
+        stroke: var(--colore-5);
+        fill: var(--colore-5);
+        stroke-width: 3px;
+        fill-opacity: 0.3;
+
+    }
+
+    path.stile-proprio-comune {
+
+        stroke: var(--colore-1);
+        fill: var(--colore-1);
+
+        stroke-width: 2px;
+        fill-opacity: 0.2;
+
+    }
+
+
+
+    /* Container dell'icona SVG */
+    .leaflet-default-icon-path {
+        background: transparent !important;
+        border: none !important;
+
+    }
+
+
+
+    /* Default*/
+    .pin-body {
+        fill: #3388ff;
+        transition: fill 0.3s ease;
+    }
+
+    /* --- COLORI DEGLI STATI --- */
+
+    /* 1) I miei ticket  */
+    .marker-mine .pin-body {
+        fill: var(--colore-1);
+    }
+
+    /* 2) Aperto (Rosso) */
+    .Aperto .pin-body {
+        fill: #d32f2f;
+    }
+
+    /* 3) In Corso (Giallo/Arancio) */
+    .Inlavorazione .pin-body {
+        fill: #fbc02d;
+    }
+
+    /* 4) Risolto (Verde) */
+    .Risolto .pin-body {
+        fill: #388e3c;
+    }
+
+    /* Effetto Hover: diventano un po' più chiari o scuri */
+    .leaflet-default-icon-path:hover .pin-body {
+        filter: brightness(1.2);
+        cursor: pointer;
+    }
+
+
+
+
+    /*********** Stile per il popup ************/
+    .leaflet-popup-content-wrapper {
+        background-color: var(--colore-4);
+        padding: 0;
+    }
+
+    .leaflet-popup-content {
+        min-width: 14rem;
+        max-width: 28rem;
+        margin: 0;
+        padding: 1rem 2rem;
+
+        @media (max-width: 60rem) {
+            max-width: 80vw;
+        }
+
+        max-height: 40rem;
+
+        @media (max-height: 60rem) {
+            max-height: 80vh;
+        }
+
+        overflow-y: auto;
+
+    }
+
+    .leaflet-popup-content:has(.ticket-popup-cats span:nth-child(2)) {
+        min-width: 20rem !important;
+    }
+
+    .ticket-popup-content {
+        width: 100%;
+        color: var(--colore-1);
+
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .ticket-popup-content h4 {
+        margin: 0;
+        font-size: 1.2rem;
+
+        width: max-content;
+        max-width: 24rem;
+
+        white-space: normal;
+        overflow-wrap: break-word;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+
+    }
+
+
+    .ticket-popup-meta {
+        color: #666;
+
+    }
+
+    .ticket-popup-cats {
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+
+        width: 100%;
+
+    }
+
+    .ticket-popup-cats span {
+        background: #eee;
+        padding: 2px 6px;
+        border-radius: 4px;
+
+        white-space: nowrap;
+
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .btn-popup-dettaglio {
+        display: block;
+        background-color: var(--colore-1);
+        color: var(--colore-4);
+
+        padding: 0.5rem 1.5rem;
+        text-decoration: none;
+        border-radius: 4px;
+
+        text-align: center;
+
+        box-sizing: border-box;
+        margin: auto;
+    }
+
+    .btn-popup-dettaglio:hover {
+        background-color: var(--colore-3);
+
+
+    }
+
+
+    /* Larghezza della barra */
+    .leaflet-popup-content::-webkit-scrollbar {
+        width: 1rem;
+
+    }
+
+    /* Sfondo della barra (track) */
+    .leaflet-popup-content::-webkit-scrollbar-track {
+        background: transparent;
+        margin: 8px 0;
+    }
+
+    /* Il "cursore" che si muove (thumb) */
+    .leaflet-popup-content::-webkit-scrollbar-thumb {
+        background: var(--colore-1);
+
+        border: 3px solid transparent;
+        background-clip: padding-box;
+        border-radius: 10px;
+    }
+
+    /* Colore del cursore quando ci passi sopra */
+    .leaflet-popup-content::-webkit-scrollbar-thumb:hover {
+        background: var(--colore-1);
+
+    }
+
+
+}
+
+/* Stile del contenitore interno che scala */
+.marker-scaler {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    transform: scale(var(--marker-scale, 1));
+
+    transform-origin: bottom center;
+
+    transition: transform 0.1s linear;
+}

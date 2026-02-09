@@ -1,0 +1,102 @@
+<div class="pagine pagina-dettagli-ticket">
+
+    <div class="soloCentro">
+
+        <div class="detail-header">
+            <a href="/" data-link class="btn-back">
+                <i class="fas fa-arrow-left"></i> Torna alla home
+            </a>
+            <div class="header-right-side">
+                <div class="ticket-status-badge" id="ticket-status">Caricamento...</div>
+            </div>
+        </div>
+
+        <div class="ticket-layout-grid">
+
+            <div class="ticket-content-column">
+
+                <div class="ticket-meta-card">
+
+                    <div class="ticket-header-row">
+                        <h1 id="ticket-title" class="ticket-title">...</h1>
+
+                        <div id="ticket-actions-container" class="ticket-actions-bar hidden">
+                        </div>
+                    </div>
+
+                    <div class="meta-grid">
+                        <div class="meta-item">
+                            <i class="fas fa-user"></i>
+                            <span id="ticket-creator">...</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="far fa-calendar-alt"></i>
+                            <span id="ticket-date">...</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="ticket-coords">...</span>
+                        </div>
+                    </div>
+
+                    <div class="categories-container" id="ticket-categories"></div>
+                </div>
+
+                <div class="separator-line">Storico Interventi</div>
+
+                <div class="timeline-container" id="replies-container">
+                    <div class="loader-container">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+
+                <div class="new-reply-section" id="new-reply-section">
+                    <h3>Aggiungi una risposta</h3>
+                    <form id="form-new-reply">
+                        <textarea id="reply-text" rows="4" placeholder="Scrivi qui il tuo intervento..."
+                            required></textarea>
+
+                        <div class="form-actions">
+                            <input type="file" id="reply-files" multiple accept="image/*" style="display: none;">
+                            <button type="button" class="btn-icon" id="btn-add-files" title="Aggiungi Foto">
+                                <i class="fas fa-camera"></i> Aggiungi Foto
+                            </button>
+                            <span id="file-count" class="file-count-label"></span>
+
+                            <button type="submit" class="btn-submit">
+                                <i class="fas fa-paper-plane"></i> Invia
+                            </button>
+                        </div>
+                    </form>
+
+                    <div id="ticket-locked-message" class="locked-message hidden">
+                        <i class="fas fa-lock"></i> Questo ticket è stato risolto. Non è possibile aggiungere nuove
+                        risposte.
+                    </div>
+                </div>
+            </div>
+
+            <div class="ticket-sidebar-column">
+                <div class="sticky-wrapper">
+                    <h3>Posizione</h3>
+                    <div class="mini-map">
+                        <div id="map"></div>
+                    </div>
+
+                    <p class="map-hint"><small>La posizione della segnalazione</small></p>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="lightbox-modal" class="lightbox hidden">
+            <span class="lightbox-close">&times;</span>
+            <div class="lightbox-content">
+                <img id="lightbox-img" src="" alt="Full view">
+            </div>
+            <a class="lightbox-prev">&#10094;</a>
+            <a class="lightbox-next">&#10095;</a>
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+    </div>
+</div>

@@ -10,16 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enterprise Web App</title>
 
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- ****************************  File css ************************************* -->
-    <link rel="stylesheet" href="css/generali/globale.css">
+    <link rel="stylesheet" href="/css/generali/globale.css">
 
     <!-- ****************************  Script js ************************************* -->
-    <script type="module" src="js/router.js"></script>
+    <script type="module" src="/js/servizi/api/baseServizi.js"></script>
+    <script type="module" src="/js/router.js"></script>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 
     <!-- ****************************  Per icone ************************************* -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -42,11 +42,24 @@
 
 <body>
 
+    <div id="layout-pagina-principale">
 
-    <!-- **************************  Contenitore pagine ************************** -->
-    <main id="app"></main>
+        <!-- **************  Contenitore sidebar per filtri o altro ************* -->
+        <aside id="contenitore-sidebar"></aside>
+
+
+        <!-- **************************  Contenitore pagine ************************** -->
+        <main id="app"></main>
+
+    </div>
+
+
+
 
     <!-- **************  Contenitore modale per elemento sovrapposto ************* -->
     <div id="contenitore-modale" class="modal-overlay"></div>
+
+
+
 
 </body>

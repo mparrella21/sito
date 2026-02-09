@@ -1,0 +1,137 @@
+<!-- ****************************  Form autenticazione ************************************* -->
+
+<div id="contenitore-auth" class="pagine pagina-autenticazione">
+
+    <div id="formDiAccesso">
+        <button id="close-modal" class="btn-close-modal">&times;</button>
+
+        <!-- **************************** Scelta ************************************* -->
+
+        <div id="scelta-tabs" class="scelta-autenticazione">
+            <button id="btn-tab-login" class="scelta-btn">Login</button>
+            <button id="btn-tab-register" class="scelta-btn">Registrati</button>
+        </div>
+
+        <!-- **************************** Login ************************************* -->
+
+        <div id="view-login" class="view-autenticazione">
+            <h1><i class="fas fa-lock"></i> Accedi</h1>
+
+            <div id="msg-login" class="message-box"></div>
+
+            <form id="form-login" class="form-autenticazione">
+                <div class="elementi-form">
+                    <label for="emailLogin">Email</label>
+                    <input name="email" id="emailLogin" type="email" required placeholder="La tua email">
+                </div>
+
+                <div class="elementi-form">
+                    <label for="passwordLogin">Password</label>
+                    <input name="password" id="passwordLogin" type="password" required placeholder="La tua password">
+
+                </div>
+
+                <button type="submit" class="submitButton">Accedi</button>
+
+            </form>
+
+
+            <div class="NonImplementato" style="display:none;">
+
+                <div class="separator"> Oppure accedi con google:</div>
+
+                <div id="google-btn-container" class="google-container"></div>
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+        <!-- ************************** Registrazione ******************************** -->
+
+
+        <div id="view-register" class="view-autenticazione">
+            <h1>Crea un account</h1>
+
+            <div id="msg-register" class="message-box"></div>
+
+            <form id="form-register" class="form-autenticazione">
+                <div class="form-row">
+                    <div class="elementi-form">
+                        <label for="nome">Nome*</label>
+                        <input name="nome" id="nome" required placeholder="Nome">
+                    </div>
+                    <div class="elementi-form">
+                        <label for="cognome">Cognome*</label>
+                        <input name="cognome" id="cognome" required placeholder="Cognome">
+                    </div>
+                </div>
+
+                <div class="elementi-form">
+                    <label for="email">Email*</label>
+                    <input name="email" id="email" type="email" required placeholder="Email">
+                </div>
+                <div class="elementi-form">
+                    <label for="password">Password*</label>
+                    <input name="password" id="password" type="password" required placeholder="Password">
+                </div>
+
+                <div class="form-row">
+                    <div class="elementi-form">
+                        <label for="data-nascita">Data di nasciata*</label>
+
+                        <input type="date" name="data-nascita" id="data-nascita" class="form-control" required>
+
+                    </div>
+                    <div class="elementi-form">
+                        <label for="cellulare">Cellulare*</label>
+                        <input name="cellulare" id="cellulare" type="tel" required placeholder="Cellulare">
+                    </div>
+                </div>
+
+                <div class="note-text">*Campi obbligatori</div>
+                <button type="submit" class="submitButton">Registrati</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="formDatiAnagrafici" classe="view-autenticazione">
+        <h1>Inserisci dati anagrafici </h1>
+
+        <div id="msg-dati" class="message-box"></div>
+
+        <form id="form-dati" class="form-autenticazione">
+            <div class="form-row">
+                <div class="elementi-form">
+                    <label for="nome">Nome*</label>
+                    <input name="nome" id="nome" required placeholder="Nome">
+                </div>
+                <div class="elementi-form">
+                    <label for="cognome">Cognome*</label>
+                    <input name="cognome" id="cognome" required placeholder="Cognome">
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="elementi-form">
+                    <label for="data-nascita">Data di nascita*</label>
+                    <input type="date" name="data-nascita" id="data-nascita" required class="form-control">
+
+                </div>
+                <div class="elementi-form">
+                    <label for="cellulare">Cellulare*</label>
+                    <input name="cellulare" id="cellulare" type="tel" required placeholder="Cellulare">
+                </div>
+            </div>
+
+            <div class="note-text">*Campi obbligatori</div>
+            <button type="submit" class="submitButton">Completa accesso</button>
+        </form>
+    </div>
+</div>

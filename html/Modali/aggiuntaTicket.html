@@ -1,0 +1,50 @@
+<!-- ****************************  Pagina aggiunta ticket ************************************* -->
+
+
+<div class="pagine pagina-aggiunta-ticket">
+
+    <button class="btn-close-modal">&times;</button>
+
+    <div class="ticket-header">
+        <h2 id="titleModal">Nuova Segnalazione</h2>
+    </div>
+
+    <form id="form-ticket" class="form-ticket">
+
+        <div class="elementi-form">
+            <label>Titolo*</label>
+            <input id="titolo" name="titolo" type="text" placeholder="Es. Buca in strada" required>
+        </div>
+
+        <div class="elementi-form">
+            <label for="tipo">Categoria ticket*</label>
+            <div id="contenitore-categorie" class="checkbox-group">
+            </div>
+        </div>
+
+        <div class="elementi-form" id="row-descrizione">
+            <label for="descrizione">Descrizione*</label>
+            <textarea id="descrizione" name="descrizione" rows="4" required
+                placeholder="Descrivi il problema nel dettaglio..."></textarea>
+        </div>
+
+
+        <div class="form-row">
+            <div class="elementi-form">
+                <label>Indirizzo ticket</label>
+                <input type="text" name="indirizzo-ticket" id="indirizzo-ticket" readonly class="input-readonly">
+            </div>
+
+            <button type="button" id="modifcaPosizione" class="modifcaPosizione">Modifica</button>
+
+
+        </div>
+
+        <div class="elementi-form" id="row-foto">
+            <label for="foto">Foto (Opzionale)</label>
+            <input type="file" id="foto" name="foto" accept="image/*" multiple>
+        </div>
+
+        <button type="submit" class="submitButton" id="btn-submit-ticket">Invia Segnalazione</button>
+    </form>
+</div>

@@ -6,33 +6,44 @@
     <!-- ***************************** Sezioni Home ***************************** -->
 
 
+
     <!-- ****************** Sezione top bar ****************** -->
     <section class="sezioniHome topBar-Home">
 
-        <div class="header-left">
-            <div class="search-container">
-                <input type="text" id="map-search" placeholder="Cerca una zona o un ticket...">
-                <button type="button" id="btn-search"><i class="fas fa-search"></i></button>
+        <div>
+
+            <!-- *** Non admin *** -->
+            <div class="not-admin-only header-left">
+                <div id="titlePage" class="titlePage">Comune di ...</div>
+                <button id="btn-Comune" class="btn-Comune"> Cambia </button>
             </div>
+
+            <!-- *** Admin *** -->
+            <div class="admin-only header-left titlePage">
+                <i class="fas fa-user-shield"></i> Modalità admin
+            </div>
+
         </div>
+
+
 
         <div class="header-right" id="user-auth-zone">
 
             <!-- *** Non autorizzato *** -->
-            <div class="guest-only">
+            <div class="guest-only contenitore-btn-autorizzarsi">
                 <button id="btn-open-login" class="btn-accesso">Accedi</button>
                 <button id="btn-open-register" class="btn-accesso">Registrati</button>
             </div>
 
 
             <!-- *** Autorizzato *** -->
-            <div class="guest-only">
+            <div class="user-only">
                 <div class="contenitore-tendina-utente">
 
                     <button id="user-menu-btn" class="user-btn">
                         <div class="user-info">
-                            <span class="nome-utente">nome utente</span>
-                            <span class="ruolo-utente"> ruolo utente</span>
+                            <span id="user-name-display" class="nome-utente">nome utente</span>
+                            <span id="user-role-display" class="ruolo-utente"> ruolo utente</span>
                         </div>
                         <div class="user-avatar">
                             <i class="fas fa-user"></i>
@@ -67,6 +78,10 @@
 
     <!-- ****************** Sezione mappa ****************** -->
     <section class="sezioniHome map-Home">
+        <div class="search-container">
+            <input type="text" id="map-search" placeholder="Cerca una zona o un ticket...">
+            <button type="button" id="btn-search"><i class="fas fa-search"></i></button>
+        </div>
 
         <div id="map"></div>
 

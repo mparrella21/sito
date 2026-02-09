@@ -1,13 +1,14 @@
-import { initAuth } from './controller/auth_controller.js';
-import { initAggiuntaTicket } from './controller/aggiuntaTicket_controller.js';
-
+import { initAuth } from './controller/Modali/auth_controller.js';
+import { initAggiuntaTicket } from './controller/Modali/aggiuntaTicket_controller.js';
+import { initSceltaPosizione } from './controller/Modali/sceltaPosizione_controller.js';
 
 let lastPath = "";
 
 // *********************************** Link delle pagine dei modali  ***********************************
 const modalRoutes = {
-    "auth": { file: "html/authenticationForm.html", init: initAuth },
-    "ticket": { file: "html/aggiuntaTicket.html", init: initAggiuntaTicket },
+    "auth": { file: "/html/Modali/authenticationForm.html", init: initAuth },
+    "ticket": { file: "/html/Modali/aggiuntaTicket.html", init: initAggiuntaTicket },
+    "scelta-posizione": { file: "/html/Modali/sceltaPosizione.html", init: initSceltaPosizione }
 };
 
 
@@ -20,16 +21,16 @@ export const openModal = async (path, params = null) => {
         return;
     }
 
-    const route = modalRoutes[path] || null;
-
-    if (!route) {
-        console.error("Tipo modale non riconosciuto");
-        alert("Errore apertura modale: Tipo modale non riconosciuto ", path);
-        return;
-    }
-
 
     if (lastPath != path) {
+        const route = modalRoutes[path] || null;
+
+        if (!route) {
+            console.error("Tipo modale non riconosciuto");
+            alert("Errore apertura modale: Tipo modale non riconosciuto ", path);
+            return;
+        }
+
         try {
             // Caricamento HTML l'HTML
             const response = await fetch(route.file);
@@ -66,6 +67,9 @@ export const openModal = async (path, params = null) => {
     } else {
         // Mostrare la modale
         container.classList.add('open');
+
+        const route = modalRoutes[path] || null;
+        if (route && route.init) route.init(params);
     }
 
 

@@ -1,0 +1,31 @@
+<div class="admin-content">
+    <div class="toolbar">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="tenant-search" placeholder="Cerca comune...">
+        </div>
+        <button id="add-tenant-btn" class="btn-primary">
+            <i class="fas fa-plus"></i> Aggiungi Comune
+        </button>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Comune</th>
+                    <th>Codice ISTAT</th>
+                    <th>Provincia</th>
+                    <th>Azioni</th>
+                </tr>
+            </thead>
+            <tbody id="tenants-table-body"></tbody>
+        </table>
+    </div>
+
+    <div class="pagination">
+        <button id="prev-page" class="pagination-btn">Precedente</button>
+        <span id="page-info"></span>
+        <button id="next-page" class="pagination-btn">Successivo</button>
+    </div>
+</div>

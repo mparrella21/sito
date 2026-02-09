@@ -1,0 +1,256 @@
+/******************************** 1) Generale ********************************/
+
+.pagina-aggiunta-ticket {
+
+    width: 45rem;
+
+    min-height: 30rem;
+    min-width: 19rem;
+
+
+    padding: 2.5rem;
+    border-radius: 2.4rem;
+
+    background: var(--colore-3);
+
+}
+
+
+
+
+
+.pagina-aggiunta-ticket {
+    /******************************** 2) Pagina aggiunta ticket ********************************/
+
+
+
+    /* Stile specifico per il form ticket */
+    .ticket-header {
+        text-align: center;
+    }
+
+    .ticket-header h2 {
+        color: var(--colore-1);
+        margin: 0;
+        padding: 1rem 0;
+    }
+
+    /* Rotellina Scura (per sfondi bianchi) */
+    .loader-spinner.dark {
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+
+        border: 3px solid var(--colore-4);
+
+        border-radius: 50%;
+
+        /* ANIMAZIONE: Senza questa resta fermo */
+        animation: spin 1s linear infinite;
+
+        vertical-align: middle;
+        margin-left: 15px;
+
+    }
+
+    /* Override colori per la versione Dark */
+    .loader-spinner.dark {
+        border-top-color: var(--colore-1);
+
+    }
+
+
+
+    /* Corpo form ticket */
+    .form-ticket {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+        margin: 0 2rem 0.7rem 2rem;
+    }
+
+
+
+    .form-row {
+        display: flex;
+        gap: 1rem;
+        text-align: center;
+        justify-content: center;
+    }
+
+
+    .elementi-form {
+        box-sizing: border-box;
+        text-align: left;
+
+        width: 100%;
+    }
+
+
+
+    .elementi-form label {
+        margin-left: 0.4rem;
+        font-weight: 600;
+    }
+
+
+    .elementi-form>input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--colore-1);
+        border-radius: 7px;
+        background-color: var(--colore-4);
+    }
+
+    .checkbox-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        max-height: 15rem;
+        overflow-y: auto;
+
+        padding: 1rem;
+
+        border: 1px solid var(--colore-1);
+        border-radius: 7px;
+        background-color: var(--colore-4);
+
+    }
+
+    .checkbox-item {
+        display: flex;
+        align-items: center;
+
+        gap: 5px;
+        background: #f9f9f9;
+        padding: 5px 10px;
+        border-radius: 15px;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+
+
+    .checkbox-group::-webkit-scrollbar {
+        width: 0.7rem;
+
+    }
+
+    /* Sfondo della barra (track) */
+    .checkbox-group::-webkit-scrollbar-track {
+        background: transparent;
+        margin: 2px 0;
+    }
+
+    /* Il "cursore" che si muove (thumb) */
+    .checkbox-group::-webkit-scrollbar-thumb {
+        background: var(--colore-1);
+        background-clip: padding-box;
+        border-radius: 10px;
+    }
+
+    /* Colore del cursore quando ci passi sopra */
+    .checkbox-group::-webkit-scrollbar-thumb:hover {
+        background: var(--colore-1);
+
+    }
+
+
+
+    .elementi-form textarea {
+        width: 100%;
+
+        resize: vertical;
+        border-radius: 7px;
+        font-family: inherit;
+    }
+
+    /* Campi Readonly  */
+    .input-readonly {
+        background-color: #f0f0f0;
+        color: #666;
+        border-color: #ddd;
+        cursor: not-allowed;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .modifcaPosizione {
+        margin: auto auto 0.8rem auto;
+        background-color: var(--colore-1);
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        color: var(--colore-4);
+        font-weight: 500;
+
+    }
+
+
+
+    @media (max-width: 20rem) {
+        .form-row {
+            flex-direction: column;
+        }
+
+        #modifcaPosizione {
+            margin: auto;
+        }
+    }
+
+
+    .submitButton {
+        margin: 1rem auto auto;
+        background-color: var(--colore-1);
+        padding: 1rem 1.5rem;
+        border-radius: 1rem;
+        color: var(--colore-4);
+        font-weight: 700;
+    }
+
+
+
+    #row-descrizione.hidden,
+    #row-foto.hidden {
+        display: none;
+    }
+
+
+}
+
+/* Larghezza della barra */
+.pagina-aggiunta-ticket::-webkit-scrollbar {
+    width: 0.8rem;
+
+}
+
+/* Sfondo della barra (track) */
+.pagina-aggiunta-ticket::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 12px 0;
+}
+
+/* Il "cursore" che si muove (thumb) */
+.pagina-aggiunta-ticket::-webkit-scrollbar-thumb {
+    background: var(--colore-1);
+    background-clip: padding-box;
+    border-radius: 10px;
+}
+
+/* Colore del cursore quando ci passi sopra */
+.pagina-aggiunta-ticket::-webkit-scrollbar-thumb:hover {
+    background: var(--colore-1);
+
+}
+
+
+/* Keyframes per farla girare */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

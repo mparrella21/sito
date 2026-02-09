@@ -1,8 +1,21 @@
 /******************************** 1) Import degli stili di ogni pagina ********************************/
 @import "../home.css";
 @import "../areapersonale.css";
-@import "../authenticationForm.css";
-@import "../aggiuntaTicket.css";
+@import "../errorTemplate.css";
+@import "../dettaglioTicket.css";
+
+@import "../map.css";
+
+
+@import "../Globali/landingPage.css";
+@import "../Globali/selezionaTenant.css";
+@import "../Globali/adminLogin.css";
+
+@import "../Sidebar/filtriMappa.css";
+
+@import "../Modali/authenticationForm.css";
+@import "../Modali/aggiuntaTicket.css";
+@import "../Modali/sceltaPosizione.css";
 
 /******************************** 2) Variabili colori ********************************/
 :root {
@@ -12,6 +25,10 @@
     --colore-4: #EBF2FA;
     --colore-5: #C06E52;
     --dark: #1a1a1a;
+    --success-1: #cc0033;
+    --success-2: #fce4e4;
+    --error-1: #155724;
+    --error-2: #d4edda;
 }
 
 
@@ -29,31 +46,24 @@ body {
     padding: 0;
     height: 100%;
     width: 100%;
-    font-size: clamp(50%, 45% + 2vw, 62.5%);
+    font-size: 62.5%;
 
-}
-
-@media (max-width: 960px) {
-    html {
+    @media (max-width: 700px) {
         font-size: 59.38%
     }
 
-}
+    @media (max-width: 600px) {
+        font-size: 56.25%
+    }
 
-@media (max-width: 768px) {
-    html {
+
+    @media (max-width: 500px) {
         font-size: 56.25%
     }
 
 }
 
 
-@media (max-width: 768px) {
-    html {
-        font-size: 56.25%
-    }
-
-}
 
 img,
 picture,
@@ -84,7 +94,7 @@ button {
 
 /******************************** 4) Caratteristiche testi generali ********************************/
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', sans-serif, Arial, Helvetica;
     font-size: 1.6rem;
     text-align: left;
     line-height: 1.6;
@@ -98,17 +108,183 @@ input,
 textarea,
 select {
     font: inherit;
-
+    color: var(--colore-1);
 }
 
 /******************************** 5) Layout globale (zona comune) ********************************/
 
+/****** Gestione organizzazione layout pagina principale ******/
+#layout-pagina-principale {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+/****** Zona sidebar ******/
+
+
+#contenitore-sidebar {
+    display: none;
+
+    position: relative;
+    height: 100%;
+    flex-shrink: 0;
+    background-color: var(--colore-3);
+
+
+    overflow: visible;
+}
+
+/* Stato 2: Attivo (caricato ma chiuso) */
+#contenitore-sidebar.attivo {
+    display: flex;
+
+    width: 0px;
+}
+
+/* Contenitore sidebar attivo */
+#contenitore-sidebar.open {
+
+    width: auto;
+    max-width: 80vw;
+    border-right: 1px solid var(--colore-1);
+}
+
+#contenitore-sidebar {
+
+    /* Elementi per pagina dentro sidebar */
+    .pagina-sidebar {
+        height: 100%;
+        overflow: auto;
+
+
+    }
+
+
+    /* Tasto sidebar e testo collegato */
+
+    .sidebar-tab {
+        display: none;
+
+        position: absolute;
+        right: -3.5rem;
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        width: 3.5rem;
+        height: 6.5rem;
+        background-color: var(--colore-1);
+
+        color: var(--colore-4);
+
+        border: none;
+        border-radius: 0 10px 10px 0;
+
+
+        cursor: pointer;
+
+        justify-content: center;
+        align-items: center;
+        box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2);
+        z-index: 1001;
+        overflow: visible;
+    }
+
+    /* Il fumetto di testo */
+    .sidebar-tab[data-text]::after {
+        content: attr(data-text);
+
+        position: absolute;
+        left: 100%;
+
+        margin-left: 10px;
+
+        top: 50%;
+        transform: translateY(-50%);
+
+        background-color: var(--colore-1);
+
+        color: var(--colore-4);
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        white-space: nowrap;
+
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.15s ease-in-out;
+
+        pointer-events: none;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Mostra al passaggio del mouse */
+    .sidebar-tab[data-text]:hover::after {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Triangolino (opzionale, per stile) */
+    .sidebar-tab[data-text]::before {
+        content: '';
+        position: absolute;
+        left: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 6px solid transparent;
+        border-right-color: var(--colore-1);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.15s;
+    }
+
+    .sidebar-tab[data-text]:hover::before {
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+
+
+}
+
+#contenitore-sidebar.attivo .sidebar-tab {
+    display: flex;
+
+}
+
+
+/* Quando la sidebar è chiusa, l'icona si gira */
+#contenitore-sidebar.open .sidebar-tab i {
+    transform: rotate(180deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /****** Zona contenuto ******/
 #app {
-    min-height: 100vh;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    transition: width 0.3s ease-in-out;
 }
 
 
@@ -155,6 +331,7 @@ select {
     max-height: 80%;
     overflow-y: auto;
 
+
 }
 
 .animazione-modale {
@@ -188,7 +365,6 @@ select {
 
 
 
-
 /******************************** 6) Gestione utente loggato ********************************/
 
 /* Nascondi tutto ciò che è per soli utenti loggati */
@@ -208,4 +384,22 @@ body.logged-in .guest-only {
 body.logged-in .user-only {
     display: block !important;
     /* o flex/grid a seconda del layout */
+}
+
+
+/******************************** 6) Gestione admin ********************************/
+
+.admin-only {
+    display: none !important;
+}
+
+
+/* ...NASCONDI le cose da utente non admin  */
+body.admin-logged .not-admin-only {
+    display: none !important;
+}
+
+/* ...MOSTRA le cose da admin */
+body.admin-logged .admin-only {
+    display: block !important;
 }
